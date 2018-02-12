@@ -27,12 +27,13 @@ file*/
     this.setState((state) => ({
       books: state.books.filter((b) => b.id !== book.id)
     }))
-    BooksAPI.update(book, shelf)
-    BooksAPI.get(book.id).then(book => {
-      this.setState(state => ({
-        books: state.books.concat([ book ])
-      }))
-    })
+    BooksAPI.update(book, shelf).then(
+      BooksAPI.get(book.id).then(book => {
+        this.setState(state => ({
+          books: state.books.concat([ book ])
+        }))
+      })
+    )
 
   }
 
