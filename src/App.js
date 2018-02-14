@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import SearchPage from './SearchPage'
 import ListBooks from './ListBooks'
 import * as BooksAPI from './BooksAPI'

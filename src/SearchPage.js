@@ -28,9 +28,9 @@ class SearchPage extends React.Component {
           {
             bookIds[i] = books[i].id;
           }
-          for (var i = 0; i < searchBooks.length; i++)
+          for (var j = 0; j < searchBooks.length; j++)
           {
-            searchIds[i] = searchBooks[i].id;
+            searchIds[j] = searchBooks[j].id;
           }
           var oldBooks = books.filter((b) => searchIds.includes(b.id))
           searchBooks = searchBooks.filter((b) => !bookIds.includes(b.id))
