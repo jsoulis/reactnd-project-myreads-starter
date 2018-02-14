@@ -12,7 +12,7 @@ class SearchPage extends React.Component {
   }
 
   updateQuery = (query, books) => {
-    this.setState({ query: query.trim() })
+    this.setState({ query: query })
     //BooksAPI.search(query).then(stuff => console.log(stuff))
     if(query)
     {
