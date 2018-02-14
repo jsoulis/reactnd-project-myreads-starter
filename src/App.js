@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import SearchPage from './SearchPage'
 import ListBooks from './ListBooks'
 import * as BooksAPI from './BooksAPI'
@@ -34,11 +34,10 @@ file*/
         }))
       })
     )
-
   }
 
   render() {
-    BooksAPI.getAll().then(stuff => console.log(stuff))
+    //BooksAPI.getAll().then(stuff => console.log(stuff))
     return (
       <div className="app">
         <div>
@@ -49,13 +48,15 @@ file*/
               books={this.state.books}
               onUpdateBook={this.updateBook}/>
             <div className="open-search">
-              <Link to="/add">Add a book</Link>
+              <Link to="/search">Add a book</Link>
             </div>
           </div>
         )}/>
       </div>
-        <Route path="/add" render={() => (
-          <SearchPage/>
+        <Route path="/search" render={() => (
+          <SearchPage
+            books={this.state.books}
+            onUpdateBook={this.updateBook}/>
         )}/>
       </div>
     )

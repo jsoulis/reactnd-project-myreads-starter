@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './App.css'
-import * as BooksAPI from './BooksAPI'
 
 class ListBooks extends React.Component {
   state = {
@@ -26,9 +25,9 @@ class ListBooks extends React.Component {
                         <div className="book-top">
                           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
                           <div className="book-shelf-changer">
-                            <select onChange={(event) => onUpdateBook(book, event.target.value)}>
+                            <select defaultValue={book.shelf} onChange={(event) => onUpdateBook(book, event.target.value)}>
                               <option value="none" disabled>Move to...</option>
-                              <option selected="selected" value="currentlyReading">Currently Reading</option>
+                              <option value="currentlyReading">Currently Reading</option>
                               <option value="wantToRead">Want to Read</option>
                               <option value="read">Read</option>
                               <option value="none">None</option>
@@ -53,10 +52,10 @@ class ListBooks extends React.Component {
                         <div className="book-top">
                           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
                           <div className="book-shelf-changer">
-                            <select onChange={(event) => onUpdateBook(book, event.target.value)}>
+                            <select defaultValue={book.shelf} onChange={(event) => onUpdateBook(book, event.target.value)}>
                               <option value="none" disabled>Move to...</option>
                               <option value="currentlyReading">Currently Reading</option>
-                              <option selected="selected" value="wantToRead">Want to Read</option>
+                              <option value="wantToRead">Want to Read</option>
                               <option value="read">Read</option>
                               <option value="none">None</option>
                             </select>
@@ -80,11 +79,11 @@ class ListBooks extends React.Component {
                         <div className="book-top">
                           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
                           <div className="book-shelf-changer">
-                            <select onChange={(event) => onUpdateBook(book, event.target.value)}>
+                            <select defaultValue={book.shelf} onChange={(event) => onUpdateBook(book, event.target.value)}>
                               <option value="none" disabled>Move to...</option>
                               <option value="currentlyReading">Currently Reading</option>
                               <option value="wantToRead">Want to Read</option>
-                              <option selected="selected" value="read">Read</option>
+                              <option value="read">Read</option>
                               <option value="none">None</option>
                             </select>
                           </div>
