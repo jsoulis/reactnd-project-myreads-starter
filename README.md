@@ -4,7 +4,6 @@ This is a project for the Udacity React Nanodegree program to introduce students
 
 The version provided here is my take on implementing an interactive bookshelf using React. The Book listing component is defined in ListBooks.js, the main page component defined in Apps.js, and the search page component defined in SearchPage.js. These are the files that I have directly created or modified heavily from the original files provided from the fork from Udacity's repo.
 
-To get started developing right away:
 
 # Installation and Startup
 
