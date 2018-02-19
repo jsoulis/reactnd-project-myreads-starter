@@ -12,7 +12,9 @@ class SearchPage extends React.Component {
   }
 
   updateQuery = (query, books) => {
+
     this.setState({ query: query })
+
     //BooksAPI.search(query).then(stuff => console.log(stuff))
     if(query)
     {
@@ -40,6 +42,10 @@ class SearchPage extends React.Component {
 
       })
     }
+    else {
+      this.setState({ searchBooks: [] })
+      this.setState({ oldBooks: [] })
+    }
   }
 
   render() {
@@ -66,7 +72,7 @@ class SearchPage extends React.Component {
               <li key={book.id}>
                 <div className="book">
                   <div className="book-top">
-                    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
+                    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks ? book.imageLinks.smallThumbnail : 'http://via.placeholder.com/128x193'})` }}></div>
                     <div className="book-shelf-changer">
                       <select defaultValue={book.shelf} onChange={(event) => onUpdateBook(book, event.target.value)}>
                         <option value="none" disabled>Move to...</option>
@@ -78,7 +84,7 @@ class SearchPage extends React.Component {
                     </div>
                   </div>
                   <div className="book-title">{book.title}</div>
-                  <div className="book-authors">{book.authors}</div>
+                  <div className="book-authors">{book.authors ? book.authors[0] : ""}</div>
                 </div>
               </li>
             ))}
@@ -86,7 +92,7 @@ class SearchPage extends React.Component {
               <li key={book.id}>
                 <div className="book">
                   <div className="book-top">
-                    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
+                    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks ? book.imageLinks.smallThumbnail : 'http://via.placeholder.com/128x193'})` }}></div>
                     <div className="book-shelf-changer">
                       <select defaultValue={"none"} onChange={(event) => onUpdateBook(book, event.target.value)}>
                         <option value="none" disabled>Move to...</option>
@@ -98,7 +104,7 @@ class SearchPage extends React.Component {
                     </div>
                   </div>
                   <div className="book-title">{book.title}</div>
-                  <div className="book-authors">{book.authors}</div>
+                  <div className="book-authors">{book.authors ? book.authors[0] : ""}</div>
                 </div>
               </li>
             ))}
