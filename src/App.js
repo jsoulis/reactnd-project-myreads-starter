@@ -24,16 +24,25 @@ file*/
   }
 
   updateBook = (book, shelf) => {
+
+
     this.setState((state) => ({
       books: state.books.filter((b) => b.id !== book.id)
     }))
+
     BooksAPI.update(book, shelf).then(
       BooksAPI.get(book.id).then(book => {
+
+        this.setState((state) => ({
+          books: state.books.filter((b) => b.id !== book.id)
+        }))
+
         this.setState(state => ({
           books: state.books.concat([ book ])
         }))
       })
     )
+
   }
 
   render() {
