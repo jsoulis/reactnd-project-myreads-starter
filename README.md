@@ -6,7 +6,7 @@ The version provided here is my take on implementing an interactive bookshelf us
 
 To get started developing right away:
 
-# Installation
+# Installation and Startup
 
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
